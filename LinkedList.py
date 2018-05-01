@@ -3,16 +3,16 @@ class Node :
         self.data = data
         self.next = None
 
-class LinkedList :
 
+class LinkedList :
     def __init__(self) :
-        print('LinkedList is created.')
         self.head = None
         self.curr = None
         self.prev = None
         self.size = 0
 
     def add(self, index, data) :
+        # 새로운 노드를 생성한다.
         newNode = Node(data)
 
         if self.head == None :
@@ -36,7 +36,24 @@ class LinkedList :
             newNode.next = self.curr
 
     def remove(self, index) :
-        pass
+        removed = None
+        if index <= 0 :
+            # 가장 앞에 있는 원소 삭제
+            removed = self.head
+            self.head = self.head.next
+        else :
+            self.curr = self.head
+            i = 0
+
+            while i < index and self.curr.next != None :
+                self.prev = self.curr
+                self.curr = self.curr.next
+                i += 1
+
+            removed = self.curr
+            self.prev.next = self.curr.next
+
+        return removed.data
 
     def show(self) :
         self.curr = self.head
