@@ -104,7 +104,31 @@ class LinkedList :
             curr = curr.next
         return result
 
+    def has(self, data) :
+        curr = self.head
+        result = False
 
+        while curr != None :
+            if curr.data == data :
+                result = True
+                break
+            curr = curr.next
+
+        return result
+
+    def indexOf(self, data) :
+        curr = self.head
+        i = 0
+        result = -1
+
+        while curr != None :
+            if str(curr.data) == data :
+                result = i
+                break
+            i += 1
+            curr = curr.next
+
+        return result
 
     # private method
     def __getNode(self, index) :
