@@ -40,11 +40,17 @@ class RemoveFromLinkedListTest(unittest.TestCase) :
 
     def test_removeLast(self) :
         list = init_list()
+        print(list.show())
         self.assertEqual(list.removeLast(), 'first5')
+        print(list.show())
         self.assertEqual(list.removeLast(), 'first4')
+        print(list.show())
         self.assertEqual(list.removeLast(), 'first3')
+        print(list.show())
         self.assertEqual(list.removeLast(), 'first2')
+        print(list.show())
         self.assertEqual(list.removeLast(), 'first1')
+        print(list.show())
         self.assertEqual(list.removeLast(), 'This List has any data.')
 
 

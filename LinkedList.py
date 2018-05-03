@@ -87,7 +87,14 @@ class LinkedList :
             return self.removeFirst()
         # or not
         else :
-            return self.removeNode(self.size-1)
+            prev = self.__getNode(self.size-2)
+            curr = self.__getNode(self.size-1)
+
+            prev.next = None
+            self.tail = prev
+            self.size -= 1
+
+            return curr.data
 
 
     def get(self, index) :
