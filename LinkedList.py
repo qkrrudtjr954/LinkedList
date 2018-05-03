@@ -35,6 +35,7 @@ class LinkedList :
             self.prev.next = newNode
             newNode.next = self.curr
 
+
     def remove(self, index) :
         removed = None
         if index <= 0 :
@@ -42,6 +43,7 @@ class LinkedList :
             removed = self.head
             self.head = self.head.next
         else :
+            # 중간 and 가장 뒤에 있는 원소 삭제
             self.curr = self.head
             i = 0
 
@@ -66,8 +68,3 @@ class LinkedList :
 
     def get(self, index) :
         pass
-
-
-if __name__ == '__main__' :
-    list = LinkedList()
-    list.add(0, 'first')
