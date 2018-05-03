@@ -22,7 +22,6 @@ class AddToLinkedListTest(unittest.TestCase) :
         list.addLast('first3')
         self.assertEqual(list.show(), ['first1', 'first2', 'first3'])
 
-
     def test_addToMiddle(self) :
         list = LinkedList()
         list.addNode(3, 'first5')

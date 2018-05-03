@@ -52,18 +52,47 @@ class LinkedList :
             newNode.next = curr
             self.size += 1
 
-    def removeFirst(self) :
-        pass
 
-    def removeLast(self) :
-        pass
+    def removeFirst(self) :
+        # if empty list
+        if self.size == 0 or self.head == None :
+            return 'This List has any data.'
+        # or not
+        else :
+            temp = self.head
+            self.head = self.head.next
+            self.size -= 1
+            return temp.data
 
     def removeNode(self, index) :
-        pass
+        # empty list
+        if self.size == 0 or self.head == None :
+            return 'This List has any data.'
+        elif index <= 0 or self.size == 1 :
+            return self.removeFirst()
+        elif index >= self.size :
+            return self.removeLast()
+        # or not
+        else :
+            prev = self.__getNode(index-1)
+            curr = self.__getNode(index)
+
+            prev.next = curr.next
+            self.size -= 1
+            return curr.data
+
+    def removeLast(self) :
+        # list size lowwer than 1
+        if self.head == None or self.size <= 1 :
+            return self.removeFirst()
+        # or not
+        else :
+            return self.removeNode(self.size-1)
 
 
     def get(self, index) :
-        return None
+        return self.__getNode(index).data
+
 
     def show(self) :
         curr = self.head
@@ -80,10 +109,14 @@ class LinkedList :
     # private method
     def __getNode(self, index) :
         i = 0
+        curr = None
 
-        curr = this.head
-        while i < index :
-            curr = curr.next
-            i+=1
-            
+        if index >= self.size-1 :
+            curr = self.tail
+        else :
+            curr = self.head
+            while i < index :
+                curr = curr.next
+                i+=1
+
         return curr
