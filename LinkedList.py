@@ -11,7 +11,7 @@ class LinkedList :
         self.size = 0;
 
     def addFirst(self, data) :
-        newNode = Node(data)
+        newNode = self.Node(data)
 
         # 빈리스트일 겅유
         if self.head == None :
@@ -25,7 +25,7 @@ class LinkedList :
         self.size += 1
 
     def addLast(self, data) :
-        newNode = Node(data)
+        newNode = self.Node(data)
 
         # 빈리스트일 경우
         if self.head == None :
@@ -43,7 +43,7 @@ class LinkedList :
         elif index >= self.size :
             self.addLast(data)
         else :
-            newNode = Node(data)
+            newNode = self.Node(data)
 
             prev = self.__getNode(index-1)
             curr = self.__getNode(index)
@@ -66,10 +66,24 @@ class LinkedList :
         return None
 
     def show(self) :
-        pass
+        curr = self.head
+        result = []
+
+        while curr != None :
+            data = curr.data
+            result.append(data)
+            curr = curr.next
+        return result
 
 
 
     # private method
     def __getNode(self, index) :
-        return None
+        i = 0
+
+        curr = this.head
+        while i < index :
+            curr = curr.next
+            i+=1
+            
+        return curr
