@@ -97,8 +97,14 @@ class LinkedList :
             return curr.data
 
 
+
     def get(self, index) :
-        return self.__getNode(index).data
+        target = self.__getNode(index)
+
+        if target == None :
+            return None
+        else :
+            return target.data
 
 
     def show(self) :
