@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
 
+class NoDataException(Exception) :
+    def __init__(self, message) :
+        super().__init__(message)
+
 class LinkedList :
 
     class Node :
@@ -58,7 +62,7 @@ class LinkedList :
     def removeFirst(self) :
         # if empty list
         if self.size == 0 or self.head == None :
-            return 'This List has any data.'
+            raise NoDataException('This List has any data.')
         # or not
         else :
             temp = self.head
@@ -69,7 +73,7 @@ class LinkedList :
     def removeNode(self, index) :
         # empty list
         if self.size == 0 or self.head == None :
-            return 'This List has any data.'
+            raise NoDataException('This List has any data.')
         elif index <= 0 or self.size == 1 :
             return self.removeFirst()
         elif index >= self.size :

@@ -1,5 +1,6 @@
 import unittest
 from LinkedList import LinkedList
+from LinkedList import NoDataException
 
 class RemoveFromLinkedListTest(unittest.TestCase) :
 
@@ -17,8 +18,11 @@ class RemoveFromLinkedListTest(unittest.TestCase) :
 
     def test_removeFromEmptyList(self) :
         list = LinkedList()
-        self.assertEqual(list.removeFirst(), 'This List has any data.')
-        self.assertEqual(list.removeNode(2), 'This List has any data.')
+        with self.assertRaises(NoDataException) :
+            list.removeFirst()
+
+        with self.assertRaises(NoDataException) :
+            list.removeNode(3)
 
     def test_removeFirst(self) :
         self.assertEqual(self.list.removeFirst(), 'first1')
@@ -50,7 +54,8 @@ class RemoveFromLinkedListTest(unittest.TestCase) :
         print(self.list.show())
         self.assertEqual(self.list.removeLast(), 'first1')
         print(self.list.show())
-        self.assertEqual(self.list.removeLast(), 'This List has any data.')
+        with self.assertRaises(NoDataException) :
+            self.list.removeLast()
 
 
     def test_total(self) :
@@ -65,8 +70,12 @@ class RemoveFromLinkedListTest(unittest.TestCase) :
         # 2
         self.assertEqual(self.list.removeLast(), 'first2')
         # empty
-        self.assertEqual(self.list.removeLast(), 'This List has any data.')
-        self.assertEqual(self.list.removeFirst(), 'This List has any data.')
-        self.assertEqual(self.list.removeNode(1), 'This List has any data.')
+        with self.assertRaises(NoDataException) :
+            self.list.removeLast()
+        with self.assertRaises(NoDataException) :
+            self.list.removeFirst()
+        with self.assertRaises(NoDataException) :
+            self.list.removeNode(1)
+
 if __name__ == '__main__':
     unittest.main()
